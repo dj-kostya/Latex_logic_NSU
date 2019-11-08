@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+\begin{document}
+  \begin{enumerate}
+    \item Множество: способы задания, операции над множествами
+    \\ Не существует явного определения множества.
+    \\ Пусть A некоторое мн-во, тогда существует 2 способа задания мн-ва
+          \begin{enumerate}
+          \item A = \{1,2,3,4,5\} - явное задание эл-тов мн-ва \\
+          \item Пусть $\Phi(x)$- некоторое условие, тогда \\A = $\{x \ | \ \Phi(x) \}$ - Задание множествами с помощью некоторого условия $\Phi(x)$
+          \end{enumerate}
+      Пусть A, B- некоторые множества \\
+      Некоторые обозначения:
+      \begin{itemize}
+          \item A - подмножетсво B \\
+          $A \subseteq B = \{x \ | x\in{A} \Rightarrow x\in{B} \}$
+          \item A - собстевнное подмножетсво B \\
+          $A \subset B$, если $A \subseteq B$ и $A\ne{B} $
+          \item $\emptyset$ - множество, не содержащее эл-тов ("Пустое множество")
+      \end{itemize}
+      Операции над множествами:
+      \begin{itemize}
+        \item Объединение множеств:
+        \\ $A\cup{B} = \{ x \ | \ x \in{A} \lor x\in{B}\}$
+        \item Пересечение множеств:
+        \\ $A\cap{B} = \{ x \ | \ x \in{A} \land x\in{B}\}$
+        \item Разность множеств:
+        \\ $A \ \backslash\  B = \{x\ | \ x\in{A} \land x\notin{B} \}$
+      \end{itemize}
+  \end{enumerate}
+\end{document}

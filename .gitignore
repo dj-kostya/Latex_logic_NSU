@@ -1,5 +1,6 @@
+*.log
+*.aux
+*.bbl
+*.blg
+*.synctex.gz
 !.gitignore
-!README.md
-!colloquium#1.tex
-!colloquium#1.pdf
-*
