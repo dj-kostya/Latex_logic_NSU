@@ -4,6 +4,8 @@
 \usepackage{indentfirst}
 \usepackage{amsfonts}
 \usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{svg}
 \newtheorem{theorem}{Теорема}
 \newtheorem*{theorem*}{Теорема}
@@ -23,112 +25,128 @@
 \author{GROUPS №19137,№19144}
 \date{2019\\}
 \begin{document}
-  \maketitle
-  \begin{enumerate}
-    \item Множество: способы задания, операции над множествами
-    \\ Не существует явного определения множества.
-    \\ Пусть A некоторое мн-во, тогда существует 2 способа задания мн-ва
-          \begin{enumerate}
-          \item A = \{1,2,3,4,5\} - явное задание эл-тов мн-ва \\
-          \item Пусть $\Phi(x)$- некоторое условие, тогда \\A = $\{x \ | \ \Phi(x) \}$ - Задание множествами с помощью некоторого условия $\Phi(x)$
-          \end{enumerate}
-      Пусть A, B- некоторые множества \\
-      \begin{name}[Подмножетсво]
+\maketitle
+\begin{enumerate}
+ \item Множество: способы задания, операции над множествами
+       \\ Не существует явного определения множества.
+       \\ Пусть A некоторое мн-во, тогда существует 2 способа задания мн-ва
+       \begin{enumerate}
+        \item A = \{1,2,3,4,5\} - явное задание эл-тов мн-ва \\
+        \item Пусть $\Phi(x)$- некоторое условие, тогда \\A = $\{x \ | \ \Phi(x) \}$ - Задание множествами с помощью некоторого условия $\Phi(x)$
+       \end{enumerate}
+       Пусть A, B- некоторые множества \\
+       \begin{name}[Подмножетсво]
         A - подмножетсво B, если
         \mbox{$A \subseteq B = \{x \ | x\in{A} \Rightarrow x\in{B} \}$}
-      \end{name}
-      \begin{name}[Собстевнное подмножетсво]
-        A - собстевнное подмножетсво B, если
+       \end{name}
+       \begin{name}[Собстевенное подмножетсво]
+        A - собстевенное подмножетсво B, если
         \mbox{$A \subset B$, если $A \subseteq B$ и $A\ne{B} $}
-      \end{name}
-      \begin{name}[Пустое множество]
+       \end{name}
+       \begin{name}[Пустое множество]
         $\emptyset$ - множество, не содержащее эл-тов ("Пустое множество")
-      \end{name}
-      \begin{name}[Множество всех подмножетсв множества A]
+       \end{name}
+       \begin{name}[Множество всех подмножетсв множества A]
         \mbox{$P(A) = \{ \ C\ |\ C \subseteq{A} \ \} $}
-      \end{name}
-      \begin{name}[Универсум]
-          Универсум (условное множество все множеств) $U$
-      \end{name}
-      Операции над множествами:
-      \begin{itemize}
+       \end{name}
+       \begin{name}[Универсум]
+        Универсум (условное множество все множеств) $U$
+       \end{name}
+       Операции над множествами:
+       \begin{itemize}
         \item Объединение множеств:
-        \\ $A\cup{B} = \{ x \ | \ x \in{A} \lor x\in{B}\}$
+              \\ $A\cup{B} = \{ x \ | \ x \in{A} \lor x\in{B}\}$
         \item Пересечение множеств:
-        \\ $A\cap{B} = \{ x \ | \ x \in{A} \land x\in{B}\}$
+              \\ $A\cap{B} = \{ x \ | \ x \in{A} \land x\in{B}\}$
         \item Разность множеств:
-        \\ $A \ \backslash\  B = \{x\ | \ x\in{A} \land x\notin{B} \}$
+              \\ $A \ \backslash\  B = \{x\ | \ x\in{A} \land x\notin{B} \}$
         \item Дополнение множества:
-        \\ $\neg{A} = \{\ x\ |\ x \in{\ U} \land{x \notin{A}}\} $
+              \\ $\neg{A} = \{\ x\ |\ x \in{\ U} \land{x \notin{A}}\} $
         \item Симметрическая разность множеств:
-        \\ $A \ \Delta \ B = (A \  \backslash \ B) \cup{(B \ \backslash{\ A})} = (A\ \cup{\ B })\ \backslash \ (B\ \cup{\ A } ) $
-
-      \end{itemize}\newpage
-      Пусть S - семейство множеств:
-      \begin{itemize}
+              \\ $A \ \Delta \ B = (A \  \backslash \ B) \cup{(B \ \backslash{\ A})} = (A\ \cup{\ B })\ \backslash \ (B\ \cup{\ A } ) $
+       \end{itemize}
+       \newpage
+       Пусть S - семейство множеств:
+       \begin{itemize}
         \item Объединение семейства множеств\\
-        $\bigcup{S} = \{\ x\ |\ \exists{A_i} \in{\ S \ }:x\ \in{\ A_i \ }\}$
+              $\bigcup{S} = \{\ x\ |\ \exists{A_i} \in{\ S \ }:x\ \in{\ A_i \ }\}$
         \item Пересечение семейства множеств\\
-        $\bigcap{S} = \{\ x\ |\ \forall{A_i} \in{\ S\ }: x\ \in{\ A_i \ } \}$
-      \end{itemize}
-    \item Упорядоченный набор (кортеж), предложение о равенстве n-ок, декартово произведение, декартова степень.
-    \begin{definition*}[Упорядоченный набор (кортеж)]
-      Упорядоченный набор (кортеж) длинны n определяется по индукции
-      \begin{math}\\
-        <> = \emptyset\\
-        <a> = a\\
-        <a,b> = \{\{a\},\{a,b\}\}
-        \\
-        ...
-        \\
-        <a_1, a_2, ...,a_{n-1} ,a_n> = <<a_1, a_2, ...,a_{n-1})>, a_n>
-      \end{math}
-    \end{definition*}
-    \begin{definition*}[пара]
+              $\bigcap{S} = \{\ x\ |\ \forall{A_i} \in{\ S\ }: x\ \in{\ A_i \ } \}$
+       \end{itemize}
+ \item Упорядоченный набор (кортеж), предложение о равенстве n-ок, декартово произведение, декартова степень.
+       \begin{definition*}[Упорядоченный набор (кортеж)]
+        Упорядоченный набор (кортеж) длинны n определяется по индукции
+        \begin{math}\\
+         <> = \emptyset\\
+         <a> = a\\
+         <a,b> = \{\{a\},\{a,b\}\}
+         \\
+         ...
+         \\
+         <a_1, a_2, ...,a_{n-1} ,a_n> = <<a_1, a_2, ...,a_{n-1})>, a_n>
+        \end{math}
+       \end{definition*}
+       \begin{definition*}[пара]
         Набор $<a,b>$ длинны 2 называют \textit{парой}
-    \end{definition*}
-    \begin{theorem*}[Предложение о равенстве n-ок]
-      Если \mbox{$<a_1,...,a_n> = <b_1, ..., b_n>$}, то $a_1 = b_1, ..., a_n = b_n$
-    \end{theorem*}
-    \begin{proof}
-        ...
-    \end{proof}
-    \begin{definition*}[Декартово произведение]
-      Пусть даны множества $A_1,...,A_n$, тогда их декартовым произведением называют
-      \newline\mbox{$A_1 \times A_2 \times ... \times A_n = \{<a_1,...,a_n>|\  \forall{i}\in{\{1,...,n\}}\ a_i\in{A_i} \}$}
-    \end{definition*}
-    \begin{definition*}[Декартова степень]
-      В случае, если \mbox{$A_1=A_2=...=A_n$}, тогда $A_1 \times A_2 \times ... \times A_n$ называют декартовой степенью и обозначают, как $A^n=A_1 \times A_2 \times ... \times A_n$
-    \end{definition*}
-    \item Бинарные отношения, обратное отношение, произведение отношений, лемма о бинарных отношениях.
-        \begin{definition*}Бинарным отношением между элементами множеств A и B называется произвольное подмножество\\
-         $C \subseteq{A \times B}$
-        \end{definition*}
-        \begin{definition*}Обратным бинарным отношением называется \\
+       \end{definition*}
+       \begin{theorem*}[Предложение о равенстве n-ок]
+        Если \\ \mbox{$<a_1,...,a_n> = <b_1, ..., b_n> \Leftrightarrow a_1 = b_1, ..., a_n = b_n$}
+       \end{theorem*}
+       \begin{proof}
+        для $n=1$ очевидно в обе стороны. Докажем для $n = 2$: \\
+        $<a_1, a_2> = <b_1, b_2> \Leftrightarrow \{\{a_1\},\{ a_1, a_2\} \} = \{\{b_1\},\{ b_1, b_2\}\}$
+        \\ Пусть $a_1 = a_2 \Rightarrow \left[
+         \begin{gathered}
+          \{a_1\} = \{b_1, b_2\}\hfill \\
+          \{a_1, a_2\} = \{b_1, b_2\}\hfill \\
+         \end{gathered}
+         \right. \Rightarrow a_1=a_2 = b_1 = b_2 $
+        \\ для $b_1 = b_2$ аналогично.\\ Расмотрим $a_1 \ne a_2, b_1 \ne b_2$\\
+        $\Rightarrow \left[ \begin{gathered}
+          \{a_1\} = \{b_1\}\hfill \\
+          \{a_1\} = \{b_1, b_2\}\hfill \\
+         \end{gathered}
+         \right. \Rightarrow \{a_1\} = \{b_1\} \Rightarrow a_1 = b_1$\\
+        \\По аналогии для $\{a_1, a_2\} = \{b_1, b_2\}$\\
+        Т.к справледливо для $n=2$, а определение n-ок индуктивно следовательно верно для n
+       \end{proof}
+       \begin{definition*}[Декартово произведение]
+        Пусть даны множества $A_1,...,A_n$, тогда их декартовым произведением называют
+        \newline\mbox{$A_1 \times A_2 \times ... \times A_n = \{<a_1,...,a_n>|\  \forall{i}\in{\{1,...,n\}}\ a_i\in{A_i} \}$}
+       \end{definition*}
+       \begin{definition*}[Декартова степень]
+        В случае, если \mbox{$A_1=A_2=...=A_n$}, тогда $A_1 \times A_2 \times ... \times A_n$ называют декартовой степенью и обозначают, как $A^n=A_1 \times A_2 \times ... \times A_n$
+       \end{definition*}
+       \newpage
+ \item Бинарные отношения, обратное отношение, произведение отношений, лемма о бинарных отношениях.
+       \begin{definition*}Бинарным отношением между элементами множеств A и B называется произвольное подмножество\\
+        $C \subseteq{A \times B}$
+       \end{definition*}
+       \begin{definition*}Обратным бинарным отношением называется \\
         $R^{-1} = \{<y;x> |\ <x;y> \in{R}\}$
-        \end{definition*}
-        \begin{definition*}Произведением бинарных отношений называется \\
+       \end{definition*}
+       \begin{definition*}Произведением бинарных отношений называется \\
         $R_{1}\times R_{2} = \{<x;z>          |\exists z |\ <x;y> \in R_{1}   \land <y;z> \in R_{2}\}$
-        \end{definition*}
-    \begin{lemma*}[Лемма о бинарных отношениях]
-      Для любых бинарных отношений $R_{1},R_{2},R_{3} $:
-      \begin{enumerate}
-        \item     $R_{1}\cdot (R_{2}\cdot R_{3}) = (R_{1}\cdot R_{2})\cdot R_{3} $\\
-        \item $(R_{1}\cdot R_{2})^{-1} = R_{2}^{-1}\cdot R_{1}^{-1} $
-      \end{enumerate}
-    \end{lemma*}
-    \begin{proof}
-      \begin{enumerate}
-        \item Покажем, что $R_{1}\cdot (R_{2}\cdot R_{3}) \subseteq (R_{1}\cdot R_{2})\cdot R_{3} $. \\
-        Пусть $<x;t> \in R_{1}\cdot (R_{2}\cdot R_{3})$, тогда существует $y$ такое, что \\ $<x;y>\in R_{1}$ и $<y;t>\in R_{2}\cdot R_{3}$. Далее существует $z$ такое, что  $<y;z>\in R_{2}$ и  $<z;t>\in R_{3}$. Получаем, что $<x;z>\in R_{1}\cdot R_{2}$ и $<x;t>\in (R_{1}\cdot R_{2})\cdot R_{3}$.
-        Обратное включение доказывается аналогично.
-        \item Покажем, что $(R_{1}\cdot R_{2})^{-1} \subseteq R_{2}^{-1}\cdot R_{1}^{-1} $.\\
-        Пусть $<z;x> \in (R_{1}\cdot R_{2})^{-1}$, тогда существует $y$ такое, что $<x;y>\in R_{1}$ и $<y;z>\in R_{2}$. Тогда $<y;x>\in R_{1}^{-1}$ и
-        $<z;y>\in R_{2}^{-1}$.
-        Получаем, что $<z;x> \in R_{2}^{-1}\cdot R_{1}^{-1} $.
-        Обратное включение доказывается аналогично.
-      \end{enumerate}
-    \end{proof}
+       \end{definition*}
+       \begin{lemma*}[Лемма о бинарных отношениях]
+        Для любых бинарных отношений $R_{1},R_{2},R_{3} $:
+        \begin{enumerate}
+         \item     $R_{1}\cdot (R_{2}\cdot R_{3}) = (R_{1}\cdot R_{2})\cdot R_{3} $\\
+         \item $(R_{1}\cdot R_{2})^{-1} = R_{2}^{-1}\cdot R_{1}^{-1} $
+        \end{enumerate}
+       \end{lemma*}
+       \begin{proof}
+        \begin{enumerate}
+         \item Покажем, что $R_{1}\cdot (R_{2}\cdot R_{3}) \subseteq (R_{1}\cdot R_{2})\cdot R_{3} $. \\
+               Пусть $<x;t> \in R_{1}\cdot (R_{2}\cdot R_{3})$, тогда существует $y$ такое, что \\ $<x;y>\in R_{1}$ и $<y;t>\in R_{2}\cdot R_{3}$. Далее существует $z$ такое, что  $<y;z>\in R_{2}$ и  $<z;t>\in R_{3}$. Получаем, что $<x;z>\in R_{1}\cdot R_{2}$ и $<x;t>\in (R_{1}\cdot R_{2})\cdot R_{3}$.
+               Обратное включение доказывается аналогично.
+         \item Покажем, что $(R_{1}\cdot R_{2})^{-1} \subseteq R_{2}^{-1}\cdot R_{1}^{-1} $.\\
+               Пусть $<z;x> \in (R_{1}\cdot R_{2})^{-1}$, тогда существует $y$ такое, что $<x;y>\in R_{1}$ и $<y;z>\in R_{2}$. Тогда $<y;x>\in R_{1}^{-1}$ и
+               $<z;y>\in R_{2}^{-1}$.
+               Получаем, что $<z;x> \in R_{2}^{-1}\cdot R_{1}^{-1} $.
+               Обратное включение доказывается аналогично.
+        \end{enumerate}
+       \end{proof}
 
-  \end{enumerate}
+\end{enumerate}
 \end{document}
