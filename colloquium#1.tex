@@ -7,7 +7,8 @@
 \usepackage{svg}
 \newtheorem{theorem}{Теорема}
 \newtheorem*{theorem*}{Теорема}
-\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{lemma}{Лемма}
+\newtheorem*{lemma*}{Лемма}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Определение}
@@ -99,6 +100,35 @@
     \begin{definition*}[Декартова степень]
       В случае, если \mbox{$A_1=A_2=...=A_n$}, тогда $A_1 \times A_2 \times ... \times A_n$ называют декартовой степенью и обозначают, как $A^n=A_1 \times A_2 \times ... \times A_n$
     \end{definition*}
-    
+    \item Бинарные отношения, обратное отношение, произведение отношений, лемма о бинарных отношениях.
+        \begin{definition*}Бинарным отношением между элементами множеств A и B называется произвольное подмножество\\
+         $C \subseteq{A \times B}$
+        \end{definition*}
+        \begin{definition*}Обратным бинарным отношением называется \\
+        $R^{-1} = \{<y;x> |\ <x;y> \in{R}\}$
+        \end{definition*}
+        \begin{definition*}Произведением бинарных отношений называется \\
+        $R_{1}\times R_{2} = \{<x;z>          |\exists z |\ <x;y> \in R_{1}   \land <y;z> \in R_{2}\}$
+        \end{definition*}
+    \begin{lemma*}[Лемма о бинарных отношениях]
+      Для любых бинарных отношений $R_{1},R_{2},R_{3} $:
+      \begin{enumerate}
+        \item     $R_{1}\cdot (R_{2}\cdot R_{3}) = (R_{1}\cdot R_{2})\cdot R_{3} $\\
+        \item $(R_{1}\cdot R_{2})^{-1} = R_{2}^{-1}\cdot R_{1}^{-1} $
+      \end{enumerate}
+    \end{lemma*}
+    \begin{proof}
+      \begin{enumerate}
+        \item Покажем, что $R_{1}\cdot (R_{2}\cdot R_{3}) \subseteq (R_{1}\cdot R_{2})\cdot R_{3} $. \\
+        Пусть $<x;t> \in R_{1}\cdot (R_{2}\cdot R_{3})$, тогда существует $y$ такое, что \\ $<x;y>\in R_{1}$ и $<y;t>\in R_{2}\cdot R_{3}$. Далее существует $z$ такое, что  $<y;z>\in R_{2}$ и  $<z;t>\in R_{3}$. Получаем, что $<x;z>\in R_{1}\cdot R_{2}$ и $<x;t>\in (R_{1}\cdot R_{2})\cdot R_{3}$.
+        Обратное включение доказывается аналогично.
+        \item Покажем, что $(R_{1}\cdot R_{2})^{-1} \subseteq R_{2}^{-1}\cdot R_{1}^{-1} $.\\
+        Пусть $<z;x> \in (R_{1}\cdot R_{2})^{-1}$, тогда существует $y$ такое, что $<x;y>\in R_{1}$ и $<y;z>\in R_{2}$. Тогда $<y;x>\in R_{1}^{-1}$ и
+        $<z;y>\in R_{2}^{-1}$.
+        Получаем, что $<z;x> \in R_{2}^{-1}\cdot R_{1}^{-1} $.
+        Обратное включение доказывается аналогично.
+      \end{enumerate}
+    \end{proof}
+
   \end{enumerate}
 \end{document}
