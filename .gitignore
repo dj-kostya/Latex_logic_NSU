@@ -4,3 +4,6 @@
 *.blg
 *.synctex.gz
 !.gitignore
+colloquium#1.dvi
+colloquium#1.fls
+colloquium#1.fdb_latexmk
