@@ -3,6 +3,21 @@
 \usepackage[english, russian]{babel}
 \usepackage{indentfirst}
 \usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{svg}
+\newtheorem{theorem}{Теорема}
+\newtheorem*{theorem*}{Теорема}
+\newtheorem{lemma}[theorem]{Лемма}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\newtheorem*{definition*}{Определение}
+
+\newtheorem*{name}{Обозначение}
+
+\newtheorem*{exmp}{Пример}
+
+
 \title{ Коллоквиум №1 (20.11.2019) }
 \author{GROUPS №19137,№19144}
 \date{2019\\}
@@ -17,16 +32,23 @@
           \item Пусть $\Phi(x)$- некоторое условие, тогда \\A = $\{x \ | \ \Phi(x) \}$ - Задание множествами с помощью некоторого условия $\Phi(x)$
           \end{enumerate}
       Пусть A, B- некоторые множества \\
-      Некоторые обозначения:
-      \begin{itemize}
-          \item A - подмножетсво B \\
-          $A \subseteq B = \{x \ | x\in{A} \Rightarrow x\in{B} \}$
-          \item A - собстевнное подмножетсво B \\
-          $A \subset B$, если $A \subseteq B$ и $A\ne{B} $
-          \item $\emptyset$ - множество, не содержащее эл-тов ("Пустое множество")
-          \item Множество всех подмножетсв множества A
-          \\ $P(A) = \{ \ C\ |\ C \subseteq{A} \ \} $
-      \end{itemize}
+      \begin{name}[Подмножетсво]
+        A - подмножетсво B, если
+        \mbox{$A \subseteq B = \{x \ | x\in{A} \Rightarrow x\in{B} \}$}
+      \end{name}
+      \begin{name}[Собстевнное подмножетсво]
+        A - собстевнное подмножетсво B, если
+        \mbox{$A \subset B$, если $A \subseteq B$ и $A\ne{B} $}
+      \end{name}
+      \begin{name}[Пустое множество]
+        $\emptyset$ - множество, не содержащее эл-тов ("Пустое множество")
+      \end{name}
+      \begin{name}[Множество всех подмножетсв множества A]
+        \mbox{$P(A) = \{ \ C\ |\ C \subseteq{A} \ \} $}
+      \end{name}
+      \begin{name}[Универсум]
+          Универсум (условное множество все множеств) $U$
+      \end{name}
       Операции над множествами:
       \begin{itemize}
         \item Объединение множеств:
@@ -35,6 +57,48 @@
         \\ $A\cap{B} = \{ x \ | \ x \in{A} \land x\in{B}\}$
         \item Разность множеств:
         \\ $A \ \backslash\  B = \{x\ | \ x\in{A} \land x\notin{B} \}$
+        \item Дополнение множества:
+        \\ $\neg{A} = \{\ x\ |\ x \in{\ U} \land{x \notin{A}}\} $
+        \item Симметрическая разность множеств:
+        \\ $A \ \Delta \ B = (A \  \backslash \ B) \cup{(B \ \backslash{\ A})} = (A\ \cup{\ B })\ \backslash \ (B\ \cup{\ A } ) $
+
+      \end{itemize}\newpage
+      Пусть S - семейство множеств:
+      \begin{itemize}
+        \item Объединение семейства множеств\\
+        $\bigcup{S} = \{\ x\ |\ \exists{A_i} \in{\ S \ }:x\ \in{\ A_i \ }\}$
+        \item Пересечение семейства множеств\\
+        $\bigcap{S} = \{\ x\ |\ \forall{A_i} \in{\ S\ }: x\ \in{\ A_i \ } \}$
       \end{itemize}
+    \item Упорядоченный набор (кортеж), предложение о равенстве n-ок, декартово произведение, декартова степень.
+    \begin{definition*}[Упорядоченный набор (кортеж)]
+      Упорядоченный набор (кортеж) длинны n определяется по индукции
+      \begin{math}\\
+        <> = \emptyset\\
+        <a> = a\\
+        <a,b> = \{\{a\},\{a,b\}\}
+        \\
+        ...
+        \\
+        <a_1, a_2, ...,a_{n-1} ,a_n> = <<a_1, a_2, ...,a_{n-1})>, a_n>
+      \end{math}
+    \end{definition*}
+    \begin{definition*}[пара]
+        Набор $<a,b>$ длинны 2 называют \textit{парой}
+    \end{definition*}
+    \begin{theorem*}[Предложение о равенстве n-ок]
+      Если \mbox{$<a_1,...,a_n> = <b_1, ..., b_n>$}, то $a_1 = b_1, ..., a_n = b_n$
+    \end{theorem*}
+    \begin{proof}
+        ...
+    \end{proof}
+    \begin{definition*}[Декартово произведение]
+      Пусть даны множества $A_1,...,A_n$, тогда их декартовым произведением называют
+      \newline\mbox{$A_1 \times A_2 \times ... \times A_n = \{<a_1,...,a_n>|\  \forall{i}\in{\{1,...,n\}}\ a_i\in{A_i} \}$}
+    \end{definition*}
+    \begin{definition*}[Декартова степень]
+      В случае, если \mbox{$A_1=A_2=...=A_n$}, тогда $A_1 \times A_2 \times ... \times A_n$ называют декартовой степенью и обозначают, как $A^n=A_1 \times A_2 \times ... \times A_n$
+    \end{definition*}
+    
   \end{enumerate}
 \end{document}
