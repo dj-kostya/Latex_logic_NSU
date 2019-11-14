@@ -17,6 +17,8 @@
 \newtheorem*{hypo}{Гипотеза}
 \newtheorem{prorosition}{Предложение}
 \newtheorem*{proposition*}{Предложение}
+\newtheorem*{comment*}{Замечание}
+\newtheorem{comment}{Замечание}
 \title{ Коллоквиум №1 (20.11.2019) }
 \author{GROUPS №19137,№19144}
 \date{2019\\}
@@ -143,6 +145,32 @@
                Обратное включение доказывается аналогично.
         \end{enumerate}
        \end{proof}
+ \item  Область определения отношения, множество значений отношения, образ и прообраз множества
+       относительно отношений, функция, замечание о равенстве функций, тождественная функция.
+       \begin{definition*}[Функция]
+        Бинарное отношени $f$ называется функцией, если выполняется: $<x,y_1>, <x, y_2> \in f \Rightarrow y_1 = y_2$
+       \end{definition*}
+       \begin{definition*}[Область определния]
+        $dom(f) = \{x|\ \exists{y} : <x,y>\in f\}$
+       \end{definition*}
+       \begin{definition*}[Область значений]
+        $ran(f) =\{y|\ \exists{x} : <x,y>\in f\} $
+       \end{definition*}
+       \begin{name}
+        $f$ - функция из $A$ в $B$, если
+        $f$ - функция, $dom(f)=A$ и $ran(f) \subseteq{B}$\\
+        Тогда функцию обозначают $f: A\rightarrow{B}$
+       \end{name}
+       \begin{comment*}
+        Если $f:A\rightarrow{B}$ и $x\in{A}$, то существует единственный $y$ такой, что $<x,y>\in{f}$. Этот $y$ лежит в $B$, называется \textit{значение} функции $f$ в точке $x$ и обозначается $f(x)$.
+       \end{comment*}
+       \begin{comment*}[о равенстве функций]
+        Если $f,g$ - функции, то $f = g \Leftrightarrow dom(f)=dom(g)$ и $\forall{x}\in{dom(f)} \ \ f(x)=g(x)$
+       \end{comment*}
+       \begin{definition*}[Тождественная функция]
+        Для любого множества \\$A \ \exists{f} = \{<x,x>| x\in{A}\} = id_{A}$.
+         Ясно, что $id_{A}:A\rightarrow{B}$\\ и $\forall{x}\in{A} \ id_{A}(x) = x$
+       \end{definition*}
  \item Композиция функций, лемма о композиции функций:
        \begin{definition*}[Композиция функций]
         Если $f$ и $g$ - функции, то их \textit{композиция} $g\circ{f}$ определяется, как произведение бинарных отношений $f\cdot{g}$ (В обратном порядке)
@@ -201,7 +229,7 @@
         Любой начальный сегмент в.у.м. $(A, \leq)$ либо равен $A$, либо является начальным отрезком.
        \end{lemma*}
        \begin{proof}
-        Пусть $S$ - начальный сегмент в $A$ и $S \neq A$. Тогда $A \textbackslash S \neq \emptyset$. Пусть $x$ - минимальный элемент в $A \textbackslash S$. Покажем, что $S = A_x$. Если $y \in S$, то либо $y < x$, либо $x \leq y$. Второй случай невозможен, так как тогда $x \in S$.
+        Пусть $S$ - начальный сегмент в $A$ и $S \neq A$. Тогда $A \backslash S \neq \emptyset$. Пусть $x$ - минимальный элемент в $A \backslash S$. Покажем, что $S = A_x$. Если $y \in S$, то либо $y < x$, либо $x \leq y$. Второй случай невозможен, так как тогда $x \in S$.
        \end{proof}
  \item Парадокс Рассела, аксиоматика ZFC.
        \begin{paradoks}[Парадокс Рассела]
