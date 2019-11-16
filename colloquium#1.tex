@@ -5,6 +5,8 @@
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
 \usepackage{svg}
 \usepackage{graphicx}
+\usepackage{prftree}
+\usepackage{multicol}
 \newtheorem{theorem}{Теорема}
 \newtheorem*{theorem*}{Теорема}
 \newtheorem{lemma}{Лемма}
@@ -331,19 +333,15 @@
        \begin{definition*}[Бесконечное множество]
         Множество \textit{бесконечно}, если оно не является конечным.
        \end{definition*}
-
        \begin{definition*}[Счётное множество]
         Множество $A$ \textit{счётно}, если $|A| = |\mathbb{N}|$.
        \end{definition*}
-
        \begin{definition*}[Континуальное множество]
         Множество $A$ \textit{континуально}, если $|A| = |\mathbb{R}|$.
        \end{definition*}
-
        \begin{definition*}[Не более чем счётное множество]
         Множество $A$ \textit{не более чем счётно}, если $|A| \leq |\mathbb{N}|$
        \end{definition*}
-
        \begin{consequence*}[Описание не более чем счётных множеств]
         Множество не более чем счётно тогда и только тогда, когда оно конечно или счётно.
        \end{consequence*}
@@ -570,6 +568,78 @@
        \end{proof}
  \item Допустимые правила вывода, примеры.
  \item Лемма об основных эквивалентностях, теорема о замене для ИВ.
+       \begin{lemma*}[об основных эквивалентностях]
+        Для любых формул $\Phi, \Psi, \Phi^{'}, \Psi^{'} \text{ и } \Delta$ верно:
+        \begin{enumerate}
+         \item $\Phi \equiv \Phi$;
+         \item $\Phi \equiv \Psi \Rightarrow \Psi \equiv \Phi$;
+         \item $\Phi \equiv \Psi, \Psi \equiv \Delta \Rightarrow \Phi \equiv \Delta$;
+         \item $\Phi \equiv \Phi^{'}\Rightarrow \lnot \Phi \equiv \lnot \Phi^{'}$;
+         \item $\Phi \equiv \Phi^{'}, \Psi \equiv \Psi^{'} \Rightarrow (\Phi^{'} \circ \Psi) \equiv (\Phi^{'} \circ \Psi^{'})$, где $\circ \in \{\ \&, \vee, \rightarrow\}$.
+        \end{enumerate}
+       \end{lemma*}
+       \begin{proof}
+        Пункты $a), b)$ очевидны; с): предположим, что доказуемы секвенции $\Phi \vdash \Psi, \Psi \vdash \Phi, \Psi \vdash \Delta, \Delta \vdash \Psi$. Покажем доказуемость секвенции $\Phi \vdash \Delta$, построив допустимое дерево:\\
+        \begin{displaymath}
+         \prftree
+         {\prfassumption{\Phi \vdash \Psi}} {\prftree{\prfassumption{\Phi \vdash \Delta}}{\Phi, \Psi \vdash \Delta}}
+         {\Phi \vdash \Delta}
+        \end{displaymath}
+        Дерево для $\Delta \vdash \Phi$ строится симметрично. Далее будем указывать только деревья.\\
+        $d):$
+        \begin{displaymath}
+         \prftree
+         {\Phi^{'} \vdash \Phi}
+         {\neg \Phi \vdash \neg \Phi^{'}}
+        \end{displaymath}
+        $e):$ построим три дерева для случаев $\circ = \rightarrow, \circ = \&$ и $\circ = \vee$. Далее мы иногда будем пропускать структурные правила, соединяя несколько структурных правил с одним основным или допустимым в один переход дерева.
+        \begin{displaymath}
+         \prftree
+         {\prftree
+          {\prftree
+           {\Phi^{'} \vdash \Phi;}{(\Phi \rightarrow \Psi) \vdash (\Phi \rightarrow \Psi)}
+           {(\Phi \rightarrow \Psi), \Phi^{'} \vdash \Psi;}} {\prftree{\Psi \vdash \Psi^{'}}{(\Phi \rightarrow \Psi), \Phi^{'}, \Psi \vdash \Psi^{'}}}
+          {{(\Phi \rightarrow \Psi), \Phi^{'} \vdash \Psi^{'}}}
+         }
+         {(\Phi \rightarrow \Psi) \vdash (\Phi^{'} \rightarrow \Psi{'})}
+        \end{displaymath}
+        \begin{multicols}{2}
+         \begin{displaymath}
+          \prftree
+          {\prftree
+           {\prftree
+            {\Phi \vdash \Phi^{'}}
+            {\Phi, \Psi \vdash \Phi^{'}}}
+           {(\Phi \& \Psi) \vdash \Phi^{'};}}{\prftree
+           {\prftree
+            {\Psi \vdash \Psi^{'}}
+            {\Phi, \Psi \vdash \Psi^{'}}}
+           {(\Phi \& \Psi) \vdash \Psi{'}}}
+          {(\Phi \& \Psi) \vdash (\Phi^{'} \& \Psi^{'})}
+         \end{displaymath}
+         \columnbreak
+         \\ \\
+         \begin{displaymath}
+          \prftree
+          {\prftree
+           {\Phi \vdash \Phi^{'}}
+           {\Phi \vdash (\Phi^{'} \vee \Psi^{'});}}{
+           \prftree
+           {\Psi \vdash \Psi^{'}}
+           {\Psi \vdash (\Phi^{'} \vee \Psi^{'})}}
+          {(\Phi \vee \Psi) \vdash (\Phi^{'} \vee \Psi^{'})}
+         \end{displaymath}
+        \end{multicols}
+       \end{proof}
+       \begin{theorem*}[о замене для ИВ]
+        Пусть $\Psi$ - подформула формулы $\Phi$. Обозначим через $\Phi^{'}$ результат замены $\Psi$ на $\Psi^{'}$. Если $\Psi \equiv \Psi^{'}$, то и $\Phi \equiv \Phi^{'}$.
+       \end{theorem*}
+       \begin{proof}
+        Индукцией по $|\Phi|$ докажем, что $\Phi^{'}$ - формула, эквивалентная $\Phi$. Если $\Phi = \Psi$, то $\Phi^{'} = \Psi^{'}$ и $\Phi \equiv \Phi^{'}$. Поэтому будем рассматривать только случай $\Phi \neq \Psi$.\\
+        Пусть $|\Phi| = 1$. Тогда $\Phi = \Psi$, и этот случай уже рассмотрен.\\
+        Пусть $|\Phi| > 1$, и для формул меньшей длины утверждение уже доказано. Если $\Phi =  \neg \Phi_1$, то $\Psi$ - подформула $\Phi_1$, и по предположению индукции $\Phi_1 \equiv \Phi^{'}_1$. Тогда $\Phi = \neg \Phi_1 \equiv \neg \Phi^{'}_1 = \Phi^{'}$ \\
+        Если $\Phi = (\Phi_1 \circ \Phi_2)$, где $\circ \in \{\&, \vee, \rightarrow\}$, то $\Psi$ - подформула $\Phi_1$ или $\Phi_2$. Предположим, что $\Psi$ - подформула $\Phi_1$. По предположению индукции $\Phi_1 \equiv \Phi^{'}_1$, отсюда $\Phi = (\Phi_1 \circ \Phi_2) \equiv (\Phi^{'}_1 \circ \Phi_2) = \Phi^{'}$.
+       \end{proof}
  \item Д.н.ф., к.н.ф., теорема о приведении к д.н.ф. и к.н.ф.
  \item Предложение о тождественно истинных к.н.ф.
  \item Теорема о полноте ИС.
