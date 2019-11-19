@@ -39,6 +39,9 @@
        \begin{enumerate}
         \item A = \{1,2,3,4,5\} - явное задание эл-тов мн-ва \\
         \item Пусть $\Phi(x)$- некоторое условие, тогда \\A = $\{x \ | \ \Phi(x) \}$ - Задание множествами с помощью некоторого условия $\Phi(x)$
+        \item С помощью рекуретного соотношения.\\
+              Пример: $a_n$ - числа Фибоначчи, тогда \\
+              $a_1=a_2=1$, $a_n = a_{n-1}+a_{n-2}$
        \end{enumerate}
        Пусть A, B- некоторые множества \\
        \begin{name}[Подмножетсво]
@@ -70,7 +73,7 @@
         \item Дополнение множества:
               \\ $\neg{A} = \{\ x\ |\ x \in{\ U} \land{x \notin{A}}\} $
         \item Симметрическая разность множеств:
-              \\ $A \ \Delta \ B = (A \  \backslash \ B) \cup{(B \ \backslash{\ A})} = (A\ \cup{\ B })\ \backslash \ (B\ \cup{\ A } ) $
+              \\ $A \ \Delta \ B = (A \  \backslash \ B) \cup{(B \ \backslash{\ A})} = (A\ \cup{\ B })\ \backslash \ (B\ \cap{\ A } ) $
        \end{itemize}
        Пусть S - семейство множеств:
        \begin{itemize}
@@ -81,7 +84,7 @@
        \end{itemize}
  \item Упорядоченный набор (кортеж), предложение о равенстве n-ок, декартово произведение, декартова степень.
        \begin{definition*}[Упорядоченный набор (кортеж)]
-        Упорядоченный набор (кортеж) длинны n определяется по индукции
+        Упорядоченный набор (кортеж) длины n определяется по индукции
         \begin{math}\\
          <> = \emptyset\\
          <a> = a\\
@@ -93,7 +96,7 @@
         \end{math}
        \end{definition*}
        \begin{definition*}[пара]
-        Набор $<a,b>$ длинны 2 называют \textit{парой}
+        Набор $<a,b>$ длины 2 называют \textit{парой}
        \end{definition*}
        \begin{proposition*}[о равенстве n-ок]
         Если \\ \mbox{$<a_1,...,a_n> = <b_1, ..., b_n> \Leftrightarrow a_1 = b_1, ..., a_n = b_n$}
@@ -112,7 +115,7 @@
           \{a_1\} = \{b_1\}\hfill \\
           \{a_1\} = \{b_1, b_2\}\hfill \\
          \end{gathered}
-         \right. \Rightarrow \{a_1\} = \{b_1\} \Rightarrow a_1 = b_1$\\
+         \right. \xRightarrow[]{\text{Так как}\ b_1 \ne b_2} \{a_1\} = \{b_1\} \Rightarrow a_1 = b_1$\\
         \\По аналогии для $\{a_1, a_2\} = \{b_1, b_2\}$\\
         Т.к справледливо для $n=2$, а определение n-ок индуктивно следовательно верно для n
        \end{proof}
@@ -132,7 +135,7 @@
         $R^{-1} = \{<y;x> |\ <x;y> \in{R}\}$
        \end{definition*}
        \begin{definition*}Произведением бинарных отношений называется \\
-        $R_{1}\times R_{2} = \{<x;z>          |\exists z |\ <x;y> \in R_{1}   \land <y;z> \in R_{2}\}$
+        $R_{1}\times R_{2} = \{<x;z>          |\exists y |\ <x;y> \in R_{1}   \land <y;z> \in R_{2}\}$
        \end{definition*}
        \begin{lemma*}[Лемма о бинарных отношениях]
         Для любых бинарных отношений $R_{1},R_{2},R_{3} $:
@@ -173,11 +176,18 @@
         Если $f:A\rightarrow{B}$ и $x\in{A}$, то существует единственный $y$ такой, что $<x,y>\in{f}$. Этот $y$ лежит в $B$, называется \textit{значение} функции $f$ в точке $x$ и обозначается $f(x)$.
        \end{comment*}
        \begin{comment*}[о равенстве функций]
-        Если $f,g$ - функции, то $f = g \Leftrightarrow dom(f)=dom(g)$ и $\forall{x}\in{dom(f)} \ \ f(x)=g(x)$
+        Если $f,g$ - функции, то
+        \\ $f = g \Leftrightarrow dom(f)=dom(g)$ и $\forall{x}\in{dom(f)} \ \ f(x)=g(x)$
        \end{comment*}
+       \begin{proof}
+        \mbox{}\\
+        $\Rightarrow$ очевидно\\
+        $\Leftarrow$ пусть $<x,y>\in{f} \Rightarrow x\in{dom(f)}$ и $y=f(x) \xRightarrow[]{\text{Т.к }f(x)=g(x)}\ y=g(x)\Rightarrow <x,y>\in{g} \xRightarrow{\text{В силу произвольности выбора}} f(x) \leq g(x)$ Обратное по аналогии
+       \end{proof}
        \begin{definition*}[Тождественная функция]
-        Для любого множества \\$A \ \exists{f} = \{<x,x>| x\in{A}\} = id_{A}$.
-         Ясно, что $id_{A}:A\rightarrow{B}$\\ и $\forall{x}\in{A} \ id_{A}(x) = x$
+        Для любого множества $A
+         \\ \exists{f} = \{<x,x>| x\in{A}\} = id_{A}$.
+        \\ Ясно, что $id_{A}:A\rightarrow{B}$\\ и $\forall{x}\in{A} \ id_{A}(x) = x$
        \end{definition*}
  \item Композиция функций, лемма о композиции функций:
        \begin{definition*}[Композиция функций]
@@ -187,6 +197,7 @@
         Если $f: A \rightarrow B, g:B\rightarrow C$, то их композицией $g\circ{f} : A\rightarrow C$
         и $[g\circ{f}](x)=g(f(x))$ при $x\in{A}$
        \end{lemma*}
+       \mbox{}\\\includegraphics[scale=0.5]{5_1.jpg}\\
  \item Сюръекция, инъекция, биекция, обратная функция, лемма о свойствах биекций
        \\ Пусть $ f: A \rightarrow B$
        \begin{definition*}[Сюръекция]
@@ -214,7 +225,7 @@
        \begin{lemma*}[о свойствах биекций]\mbox{}\\
         \begin{enumerate}
          \item Если $f: A \xrightarrow[\textit{на}]{1-1} B$, то $f^{-1}: B \xrightarrow[\textit{на}]{1-1} A$, $f^{-1}(f(x)) = x$ $\forall x \in A$ и $f(f^{-1}(y)) = y$ $\forall y \in B$.
-         \item Если $f: A \xrightarrow[\textit{на}]{1-1} B$, $g: B \xrightarrow[\textit{на}]{1-1} C$, то $f \circ g:  A \xrightarrow[\textit{на}]{1-1} C$.
+         \item Если $f: A \xrightarrow[\textit{на}]{1-1} B$, $g: B \xrightarrow[\textit{на}]{1-1} C$, то $g \circ f:  A \xrightarrow[\textit{на}]{1-1} C$.
         \end{enumerate}
        \end{lemma*}
 
@@ -292,7 +303,7 @@
        Можно с собой на листочке!!!
  \item Равномощные множества, замечание о равномощности.
        \begin{name}[мощность множества]
-        Мнощность множества $A$ обозначается $|A|$.
+        Мощность множества $A$ обозначается $|A|$.
        \end{name}
        \begin{definition*}[равномощные множества]
         Говорим, что множества $A$ и $B$ равномощные, если существует биекция $f: A \xrightarrow[ \text{на}]{1-1} B$. \\
@@ -314,7 +325,7 @@
         Для всяких непустых множеств $A$ и $B$ следующие условия эквиваленты:
         \begin{enumerate}
          \item $\left | A \right | \leq \left | B \right |$
-         \item Существует функция $g : B\xrightarrow[]{HA}A$
+         \item Существует функция $g : B\xrightarrow[\textit{на}]{}A$
          \item $A$ равномощно некоторому подмножеству $B$
         \end{enumerate}
        \end{lemma*}
@@ -329,8 +340,8 @@
                Пусть $h : B_{1}\xrightarrow[\text{на}]{1-1}A$, где $B_{1}\subseteq B$. \\
                Выберем произвольное $a_{0} \in A$ и построим $g : B\xrightarrow[\text{на}]{}A$ так:
                $g(y) = \left\{\begin{matrix}
-                 h(y)\text{, если} y \in B_{1} \\
-                 a_{0}\text{, если}y \in B\backslash B_{1}
+                 h(y)\text{, если } y \in B_{1} \\
+                 a_{0}\text{, если }y \in B\backslash B_{1}
                 \end{matrix}\right.$
          \item $b \Rightarrow a$ \\
                Пусть $g : B\xrightarrow[\text{на}]{ }A$.\\
@@ -387,8 +398,8 @@
                $h_{2}(x) =
                 \left\{
                 \begin{matrix}
-                 f(x)\text{, если} x \in A \\
-                 g(x)\text{, если} x \in B \\
+                 f(x)\text{, если } x \in A \\
+                 g(x)\text{, если } x \in B \\
                 \end{matrix}
                 \right.$
                Условие $A \cap B = \emptyset$ гарантирует, что определение корректно.
@@ -461,7 +472,7 @@
         Ординалом называется транзитивное множество все элементы которого сравнимы относительно включения.
        \end{definition*}
        \begin{definition*}[Транзитивное множество]
-        Множество $\alpha$ называется транзитивным, если из $x \in \alpha $ и $y \in x $ следует, что  $x \in \alpha $.
+        Множество $\alpha$ называется транзитивным, если из $x \in \alpha $ и $y \in x $ следует, что  $y \in \alpha $.
        \end{definition*}
        \begin{lemma*}[Лемма об элементах ординала]
         Если $\alpha$ - ординал и $\beta \in \alpha$, то $\beta$ - ординал.
@@ -574,9 +585,9 @@
         \item Других формул нет.
        \end{enumerate}
        \begin{definition*}[Подформула формулы $A$]
-        любое подслово слова А, которое само является формулой.
+        Подформула формулы $A$ - любое подслово слова А, которое само является формулой.
        \end{definition*}
-       Пусть $\Delta(n)$ - некоторое высказываание, которое для любого $n$ принимает значение истина или ложь.
+       Пусть $\Delta(n)$ - некоторое высказывание, которое для любого $n$ принимает значение истина или ложь.
 
        \begin{proposition*}[о представлении формул исчисления высказываний]
         Всякая неатомарная формула исчисления высказываний единственным образом представима в одном из следующих видов:
@@ -610,7 +621,7 @@
        \includegraphics[scale=0.7]{32_3.jpg}
  \item Тождественно истинные секвенции, теорема о корректности ИС.
        \begin{definition*}[Тождественно истинные секвенции]
-        Секвенция называется тождественно истинной, если она истинна при любом означивании переменных.
+        Секвенция называется тождественно истинной, если она истинна при любом означивании входящих в неё переменных.
        \end{definition*}
        \begin{theorem*}[о корректности ИС]
         Любая доказуемая в ИС секвенция тождественно истинна.
