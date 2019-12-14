@@ -2,6 +2,8 @@
 *.aux
 *.bbl
 *.blg
+*.fdb_latexmk
+*.fls
 *.synctex.gz
 !.gitignore
 colloquium#1.dvi
